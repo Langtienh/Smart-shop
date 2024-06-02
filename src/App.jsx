@@ -1,4 +1,4 @@
-// import { Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import BreadcrumbComponent from "./components/BreadCumb";
@@ -8,7 +8,9 @@ function App() {
     <>
       <Header />
       <BreadcrumbComponent />
-      <main>{/* <Outlet /> */}</main>
+      <main>
+        <Outlet />
+      </main>
       <Footer />
     </>
   );

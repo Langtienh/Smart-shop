@@ -9476,32 +9476,41 @@
     { "id": 6, "name": "headphone" },
     { "id": 7, "name": "watch" }
   ],
-  "brands_smartphone": {
-    "id": 1,
-    "brands": ["iphone", "samsung", "xiaomi", "oppo", "realme"]
-  },
-  "brands_laptop": {
-    "id": 2,
-    "brands": ["asus", "macbook", "lenovo", "msi", "hp", "dell"]
-  },
-  "brands_headphone": {
-    "id": 3,
-    "brands": ["soundpeats", "jbl", "marsall", "sony", "apple"]
-  },
-  "brands_tablet": {
-    "id": 4,
-    "brands": ["ipad", "samsung", "xiaomi"]
-  },
-  "brands_watch": {
-    "id": 5,
-    "brands": ["coros", "samsung", "xiaomi", "huawei", "apple"]
-  },
-  "brands_tivi": {
-    "id": 6,
-    "brands": ["samsung", "xiaomi", "lg", "coocaa", "sony"]
-  },
-  "brands_screen": {
-    "id": 7,
-    "brands": ["asus", "samsung", "msi"]
-  }
+  "brands": [
+    {
+      "id": 1,
+      "brands": ["iphone", "samsung", "xiaomi", "oppo", "realme"],
+      "category": "smartphone"
+    },
+    {
+      "id": 2,
+      "brands": ["asus", "macbook", "lenovo", "msi", "hp", "dell"],
+      "category": "laptop"
+    },
+    {
+      "id": 3,
+      "brands": ["soundpeats", "jbl", "marsall", "sony", "apple"],
+      "category": "headphone"
+    },
+    {
+      "id": 4,
+      "brands": ["ipad", "samsung", "xiaomi"],
+      "category": "tablet"
+    },
+    {
+      "id": 5,
+      "brands": ["coros", "samsung", "xiaomi", "huawei", "apple"],
+      "category": "watch"
+    },
+    {
+      "id": 6,
+      "brands": ["samsung", "xiaomi", "lg", "coocaa", "sony"],
+      "category": "tivi"
+    },
+    {
+      "id": 7,
+      "brands": ["asus", "samsung", "msi"],
+      "category": "screen"
+    }
+  ]
 }

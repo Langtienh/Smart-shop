@@ -1,7 +1,22 @@
-const Error404 = () => {
-  return(
-    <p>Error404</p>
-  )
-}
+import { Button, Result } from "antd";
+import { Link } from "react-router-dom";
 
-export default Error404
+const Error404 = () => {
+  return (
+    <>
+      <p className="text-3xl text-red-500 font-bold">Error 404</p>
+      <Result
+        status="404"
+        title="404"
+        subTitle="Sorry, the page you visited does not exist."
+        extra={
+          <Link to="/">
+            <Button type="primary">Back Home</Button>
+          </Link>
+        }
+      />
+    </>
+  );
+};
+
+export default Error404;
