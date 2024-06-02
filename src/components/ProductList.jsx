@@ -1,6 +1,8 @@
 import { Badge, Button, Card, message } from "antd";
 import { useEffect, useState } from "react";
 import { FaCartPlus } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
+import { addProductToCart } from "../redux/action/action";
 
 function ProductList(props) {
   const data = props.products;
@@ -21,7 +23,10 @@ function ProductList(props) {
   // xử lý thêm vào giỏ hàng
   const [loadingItem, setloadingItem] = useState([]);
   const [messageApi, contextHolder] = message.useMessage();
-  const handleAddProduct = (index) => {
+  const dispatch = useDispatch();
+
+  const handleAddProduct = (index, item) => {
+    dispatch(addProductToCart(item));
     setloadingItem((prevloadingItem) => {
       const newloadingItem = [...prevloadingItem];
       newloadingItem[index] = true;
@@ -116,7 +121,7 @@ function ProductList(props) {
                       <Button
                         loading={loadingItem[i]}
                         onClick={() => {
-                          handleAddProduct(i);
+                          handleAddProduct(i, item);
                         }}
                         size="large"
                         icon={<FaCartPlus />}

@@ -1,7 +1,11 @@
-export const addProductToCart = (id) => {
+export const addProductToCart = (item) => {
   return {
     type: "addProductToCart",
-    id,
+    id: item.id,
+    name: item.name,
+    img_url: item.img_url,
+    priceShow: item.priceShow,
+    priceThrought: item.priceThrought,
   };
 };
 export const subProductToCart = (id) => {

@@ -28,13 +28,17 @@ const NavBrands = (props) => {
           {/* <div> */}
           {brands &&
             brands.length > 0 &&
-            brands.map((item) => <Button>{item}</Button>)}
+            brands.map((item) => (
+              <Link to={`/category/${category}/${item}`}>
+                <Button>{item}</Button>
+              </Link>
+            ))}
           {/* </div> */}
         </div>
         <div>
-          <Button danger>
-            <Link to={`/category/${category}`}>All</Link>
-          </Button>
+          <Link to={`/category/${category}`}>
+            <Button danger>All</Button>
+          </Link>
         </div>
       </div>
     </>

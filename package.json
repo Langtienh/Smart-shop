@@ -27,7 +27,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "api": "json-server db.json -p 4000"
+    "api": "json-server db.json -p 4000",
+    "start2": "cross-env PORT=3001 react-scripts start"
   },
   "eslintConfig": {
     "extends": [
@@ -46,5 +47,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3"
   }
 }

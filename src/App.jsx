@@ -1,16 +1,14 @@
 import { Outlet } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import BreadcrumbComponent from "./components/BreadCumb";
 
 function App() {
   return (
     <>
-      <div className="fixed z-10 left-0 right-0">
+      <div className="fixed z-10 top-0 left-0 right-0">
         <Header />
       </div>
-      <BreadcrumbComponent />
-      <main className="px-1 lg:px-7 mt-[84px]">
+      <main className="px-1 lg:px-7 mt-[140px]">
         <Outlet />
       </main>
       <Footer />
