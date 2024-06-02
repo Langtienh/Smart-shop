@@ -6,9 +6,11 @@ import BreadcrumbComponent from "./components/BreadCumb";
 function App() {
   return (
     <>
-      <Header />
+      <div className="fixed z-10 left-0 right-0">
+        <Header />
+      </div>
       <BreadcrumbComponent />
-      <main>
+      <main className="px-1 lg:px-7 mt-[84px]">
         <Outlet />
       </main>
       <Footer />

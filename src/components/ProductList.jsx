@@ -1,12 +1,23 @@
 import { Badge, Button, Card, message } from "antd";
-import { data } from "autoprefixer";
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { FaCartPlus } from "react-icons/fa";
 
-function ProductList() {
+function ProductList(props) {
+  const data = props.products;
   const [products, setProducts] = useState([]);
 
+  // lấy dữ liệu và fake loadding
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    setProducts(data);
+  }, [data]);
+  useEffect(() => {
+    // Giả loadding
+    setTimeout(() => {
+      setLoading(false);
+    }, 500);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [products]);
   // xử lý thêm vào giỏ hàng
   const [loadingItem, setloadingItem] = useState([]);
   const [messageApi, contextHolder] = message.useMessage();
@@ -30,22 +41,6 @@ function ProductList() {
     }, 400);
   };
 
-  // lấy dữ liệu và fake loadding
-  const [loading, setLoading] = useState(true);
-  useEffect(() => {
-    axios
-      .get("http://localhost:4000/topproducts?category=laptop")
-      .then((res) => res.data)
-      .then((data) => setProducts(data))
-      .catch((error) => console.log(error));
-  }, []);
-  useEffect(() => {
-    // Giả loadding
-    setTimeout(() => {
-      setLoading(false);
-    }, 500);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [data]);
   return (
     <>
       {contextHolder}
@@ -81,10 +76,14 @@ function ProductList() {
                     <div className="min-h-16 font-bold">{item.name}</div>
                     <div className="flex gap-1 items-baseline">
                       <p className="text-[16px] font-bold text-red-600">
-                        {item.priceShow.toLocaleString("vi-VN")}đ
+                        {item.priceShow &&
+                          item.priceShow.toLocaleString("vi-VN")}
+                        đ
                       </p>
                       <p className="text-gray-500 font-bold line-through">
-                        {item.priceThrought.toLocaleString("vi-VN")}đ
+                        {item.priceThrought &&
+                          item.priceThrought.toLocaleString("vi-VN")}
+                        đ
                       </p>
                     </div>
                     <div className="min-h-[21px]">
@@ -109,7 +108,8 @@ function ProductList() {
                     <div className="mt-auto pt-2 flex justify-between items-center">
                       <p>
                         <span className="font-bold text-red-500">
-                          {item.view.toLocaleString("vi-VN")}
+                          {item.purchases &&
+                            item.purchases.toLocaleString("vi-VN")}
                         </span>{" "}
                         lượt xem
                       </p>

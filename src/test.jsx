@@ -1,26 +1,28 @@
 import React from "react";
-import { Menu, Dropdown, Button } from "antd";
+import { Dropdown, Menu, Button } from "antd";
 import { Link } from "react-router-dom";
 
-const menu = (
-  <Menu>
-    <Menu.Item>
-      <Link to="/">Home</Link>
-    </Menu.Item>
-    <Menu.Item>
-      <Link to="/about">About</Link>
-    </Menu.Item>
-    <Menu.Item>
-      <Link to="/contact">Contact</Link>
-    </Menu.Item>
-  </Menu>
-);
-
 const Test = () => {
+  const menuItems = [
+    { key: "1", label: "Home", to: "/" },
+    { key: "2", label: "About", to: "/about" },
+    { key: "3", label: "Contact", to: "/contact" },
+  ];
+
+  const menu = (
+    <Menu>
+      {menuItems.map((item) => (
+        <Menu.Item key={item.key}>
+          <Link to={item.to}>{item.label}</Link>
+        </Menu.Item>
+      ))}
+    </Menu>
+  );
+
   return (
-    <Dropdown overlay={menu}>
-      <Button>Menu</Button>
-    </Dropdown>
+    <Dropdown.Button overlay={menu} placement="bottom">
+      Menu
+    </Dropdown.Button>
   );
 };
 
