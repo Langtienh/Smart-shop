@@ -5,6 +5,7 @@ import Test from "../Test";
 import Category from "../page/public/Category";
 import ProductsPage from "../page/public/Products";
 import Cart from "../page/privatePage/Cart";
+import Invoice from "../page/privatePage/Invoice";
 
 const routes = [
   {
@@ -34,6 +35,10 @@ const routes = [
       {
         path: "cart",
         element: <Cart />,
+      },
+      {
+        path: "invoice",
+        element: <Invoice />,
       },
       {
         path: "*",

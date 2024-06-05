@@ -1,4 +1,4 @@
-import { Badge, Button, Card, message } from "antd";
+import { Badge, Button, Card, Skeleton, message } from "antd";
 import { useEffect, useState } from "react";
 import { FaCartPlus } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
@@ -69,11 +69,13 @@ function ProductList(props) {
                   key={i}
                   cover={
                     <div className="h-40">
-                      <img
-                        className="object-cover h-full mx-auto"
-                        alt={item.name}
-                        src={item.img_url}
-                      />
+                      {(
+                        <img
+                          className="object-cover h-full mx-auto"
+                          alt={item.name}
+                          src={item.img_url}
+                        />
+                      ) || <Skeleton.Image active={true} />}
                     </div>
                   }
                 >

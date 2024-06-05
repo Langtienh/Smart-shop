@@ -46,20 +46,21 @@ const App = () => {
         <Checkbox
           onChange={changeAll}
           indeterminate={indeterminate}
-          // checked={checkAll}
+          checked={checkAll}
         >
           All
         </Checkbox>
         <div className="flex flex-col">
           {data.map((item, index) => {
             return (
-              <Checkbox
-                checked={listCheck[index]}
-                onChange={(e) => changeOne(e, index)}
-                key={item.id}
-              >
-                {item.id}
-              </Checkbox>
+              <div key={item.id}>
+                <Checkbox
+                  checked={listCheck[index]}
+                  onChange={(e) => changeOne(e, index)}
+                >
+                  {item.id}
+                </Checkbox>
+              </div>
             );
           })}
         </div>

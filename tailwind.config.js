@@ -2,7 +2,11 @@
 module.exports = {
   content: ["./src/**/*.{jsx, js}", "./src/index.js"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ["Roboto", "sans-serif"], // Thêm font Roboto vào font-sans
+      },
+    },
     screens: {
       sm: "640px",
       md: "768px",

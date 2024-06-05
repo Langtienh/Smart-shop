@@ -41,15 +41,15 @@ const initialState = {
 };
 
 const crudCartReducer = (state = initialState, action) => {
-  let nState = state;
+  let state_new = { ...state };
   let index = -1;
   switch (action.type) {
     case "addProductToCart":
-      index = nState.data.findIndex((item) => {
+      index = state_new.data.findIndex((item) => {
         return item.id === action.id;
       });
       if (index === -1)
-        nState.data.push({
+        state_new.data.push({
           id: action.id,
           quantity: 1,
           name: action.name,
@@ -57,28 +57,32 @@ const crudCartReducer = (state = initialState, action) => {
           priceShow: action.priceShow,
           priceThrought: action.priceThrought,
         });
-      else nState.data[index].quantity = nState.data[index].quantity + 1;
-      return { data: nState.data, total: nState.total + 1 };
+      else state_new.data[index].quantity = state_new.data[index].quantity + 1;
+      // else console.log("run add");
+      return { data: state_new.data, total: state_new.total + 1 };
     case "subProductToCart":
-      index = nState.data.findIndex((item) => {
+      index = state_new.data.findIndex((item) => {
         return item.id === action.id;
       });
-      if (nState.data[index].quantity === 1)
-        return nState.data.filter((item) => {
-          return item.id !== action.id;
-        });
-      nState.data[index].quantity = nState.data[index].quantity - 1;
-      return { data: nState.data, total: nState.total - 1 };
+      if (state_new.data[index].quantity === 1)
+        return {
+          data: state_new.data.filter((item) => {
+            return item.id !== action.id;
+          }),
+          total: state_new.total - 1,
+        };
+      state_new.data[index].quantity = state_new.data[index].quantity - 1;
+      return { data: state_new.data, total: state_new.total - 1 };
     case "deleteProductToCart":
-      index = nState.data.findIndex((item) => {
+      index = state_new.data.findIndex((item) => {
         return item.id === action.id;
       });
-      let ntotal = nState.data[index].quantity;
+      let ntotal = state_new.data[index].quantity;
       return {
-        data: nState.filter((item) => {
+        data: state_new.data.filter((item) => {
           return item.id !== action.id;
         }),
-        total: nState.total - ntotal,
+        total: state_new.total - ntotal,
       };
     case "empytiCart":
       return { data: [], total: 0 };

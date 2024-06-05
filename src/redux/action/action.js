@@ -25,3 +25,11 @@ export const empytiCart = () => {
     type: "empytiCart",
   };
 };
+
+export const createInvoice = (data, chooseList) => {
+  return {
+    type: "createInvoice",
+    data,
+    chooseList,
+  };
+};
