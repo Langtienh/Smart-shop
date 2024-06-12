@@ -24,12 +24,12 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "json-server --watch db.json --port 4000",
+    "client": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "api": "json-server db.json -p 4000",
-    "start2": "cross-env PORT=3001 react-scripts start"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
@@ -50,6 +50,7 @@
     ]
   },
   "devDependencies": {
+    "concurrently": "^8.2.2",
     "cross-env": "^7.0.3"
   }
 }
